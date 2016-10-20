@@ -56,12 +56,10 @@ echo "Changes were saved to dhcpd.conf"
 echo "Pushover message sent"
 #exit
 curl -s \
-cat /root/pushover_drw_cred
   --form-string "`cat /home/drware/pushover/pushover_drw_cred`" \
   --form-string "`cat /home/drware/pushover/pushover_script`" \
   --form-string "message=`cat $dhcp_msg`" \
   https://api.pushover.net/1/messages.json
-
 else
 echo ""
 fi ;
