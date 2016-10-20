@@ -60,6 +60,8 @@ curl -s \
   --form-string "`cat /home/drware/pushover/pushover_script`" \
   --form-string "message=`cat $dhcp_msg`" \
   https://api.pushover.net/1/messages.json
+echo "Done"
+echo ""
 else
 echo ""
 fi ;
