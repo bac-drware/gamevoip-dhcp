@@ -21,8 +21,8 @@ sleep 3
 cat /opt/dhcp/dhcpd.conf > $dhcp_new
 
 #github
-/usr/bin/git commit -am 'Changes via update.sh'
-/usr/bin/git push original master
+#/usr/bin/git commit -am 'Changes via update.sh'
+#/usr/bin/git push original master
 
 #create pushover message
 diff $dhcp_new $dhcp_old > $dhcp_diff
@@ -31,9 +31,14 @@ echo "" >> $dhcp_msg
 cat $dhcp_diff >> $dhcp_msg
 
 #restart dhcpd
-#clear
+clear
 echo ""
 if [[ -s $dhcp_diff ]] ; then
+#github
+echo "Pusing changes to Git"
+/usr/bin/git commit -am 'Changes via update.sh'
+/usr/bin/git push original master
+echo ""
 echo "Restarting DHCP Server - About 10 second wait"
 /usr/sbin/service isc-dhcp-server restart
 sleep 5
