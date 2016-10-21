@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dhcp_new=/tmp/dhcp_edit_new.txt
+dhcp_new=/opt/dhcp/backups/dhcp_edit_new.txt
 dhcp_old=/tmp/dhcp_edit_old.txt
 dhcp_diff=/tmp/dhcp_edit_diff.txt
 dhcp_msg=/tmp/dhcp_edit_msg.txt
@@ -20,10 +20,6 @@ sleep 3
 /usr/bin/vi /opt/dhcp/dhcpd.conf
 cat /opt/dhcp/dhcpd.conf > $dhcp_new
 
-#github
-#/usr/bin/git commit -am 'Changes via update.sh'
-#/usr/bin/git push original master
-
 #create pushover message
 diff $dhcp_new $dhcp_old > $dhcp_diff
 echo "GAMEVOIP_DHCP changes:" > $dhcp_msg
@@ -35,7 +31,7 @@ clear
 echo ""
 if [[ -s $dhcp_diff ]] ; then
 #github
-echo "Pusing changes to Git"
+echo "Pushing changes to Git"
 /usr/bin/git commit -am 'Changes via update.sh'
 /usr/bin/git push original master
 echo ""
