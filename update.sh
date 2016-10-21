@@ -51,7 +51,6 @@ fi
 
 echo ""
 if [[ -s $dhcp_diff ]] ; then
-echo "$dhcp_diff has data."
 echo "Changes were saved to dhcpd.conf"
 echo "Pushover message sent"
 #exit
