@@ -17,7 +17,7 @@ echo "Starting Editor"
 sleep 1
 echo "You may now edit dhcpd.conf - Use Caution!!!"
 sleep 3
-/usr/bin/vi /opt/dhcp/dhcpd.conf
+/usr/bin/vim /opt/dhcp/dhcpd.conf
 cat /opt/dhcp/dhcpd.conf > $dhcp_new
 
 #create pushover message
